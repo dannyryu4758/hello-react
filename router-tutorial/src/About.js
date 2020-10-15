@@ -11,7 +11,7 @@ import qs from "qs";
 //   );
 // };
 
-//-- location을 활용한 URL쿼리 사용
+//-- location(Route로 상용된 컴포넌트에게 props로 전달받음)을 활용한 URL쿼리 사용
 //-- location은 다음의 요소를 가진 객체이다 : { "pathname":"/about", "search":"?detail=true", "hash":"" }
 const About = ({ location }) => {
   const query = qs.parse(location.search, {
