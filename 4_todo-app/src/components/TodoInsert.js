@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useRef } from 'react';
-import { MdAlarmAdd } from 'react-icons/md';
+import { MdAlarmAdd } from './react-icons/md';
 import './TodoInsert.scss';
 
 const TodoInsert = ({ onInsert }) => {

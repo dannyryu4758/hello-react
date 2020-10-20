@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 //-- virtualized 라이브러리 활용한 최적화 (보이지 않는 item은 렌더링 하지 않기)
-import { List } from 'react-virtualized';
+import { List } from './react-virtualized';
 import TodoListItem from './TodoListItem';
 import './TodoList.scss';
 
