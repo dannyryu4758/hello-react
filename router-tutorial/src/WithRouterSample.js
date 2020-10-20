@@ -27,5 +27,5 @@ const WithRouterSample = ({ location, match, history }) => {
     </div>
   );
 };
-//-- withRouter를 사용할 떄는 컴포넌트를 내보내 줄때 함수로 감싸 준다.
+//-- withRouter를 사용할 때는 컴포넌트를 내보내 줄때 함수로 감싸 준다.
 export default withRouter(WithRouterSample);
