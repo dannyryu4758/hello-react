@@ -933,7 +933,7 @@ function reducer() {
 var store = (0, _redux.createStore)(reducer); //-- render 함수 만들기
 
 var render = function render() {
-  var state = store.getState(); // 현재 상태를 불러옵니다.
+  var state = store.getState(); // 스토어 내장함수 - 현재 상태를 불러옵니다.
   // 토글 처리
 
   if (state.toggle) {
@@ -992,7 +992,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54774" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65225" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

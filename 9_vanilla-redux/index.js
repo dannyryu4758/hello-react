@@ -52,7 +52,7 @@ const store = createStore(reducer);
 
 //-- render 함수 만들기
 const render = () => {
-  const state = store.getState(); // 현재 상태를 불러옵니다.
+  const state = store.getState(); // 스토어 내장함수 - 현재 상태를 불러옵니다.
   // 토글 처리
   if (state.toggle) {
     divToggle.classList.add('active');
