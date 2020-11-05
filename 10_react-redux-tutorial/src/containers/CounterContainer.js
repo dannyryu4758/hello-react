@@ -11,11 +11,11 @@ const CounterContainer = ({ number, increase, decrease }) => {
   );
 };
 
-// // 상태값(state)을 props로 넘겨주는 함수
+// 상태값(state)을 props로 넘겨주는 함수
 // const mapStateToProps = (state) => ({
 //   number: state.counter.number,
 // });
-// // 액션 생성 함수를 props로 넘겨주는 함수
+// 액션 생성 함수를 props로 넘겨주는 함수
 // const mapDispatchToProps = (dispatch) => ({
 //   // 임시 함수
 //   increase: () => {
