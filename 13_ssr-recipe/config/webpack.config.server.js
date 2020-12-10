@@ -69,7 +69,7 @@ module.exports = {
             options: {
               importLoaders: 1,
               modules: {
-                exportOnlyLocals: true,
+                onlyLocals: true,
               },
             },
           },
@@ -78,9 +78,11 @@ module.exports = {
             test: cssModuleRegex,
             loader: require.resolve('css-loader'),
             options: {
-              module: true,
-              exportOnlyLocals: true,
-              getLocalIdent: getCSSModuleLocalIdent,
+              importLoaders: 1,
+              modules: {
+                onlyLocals: true,
+                getLocalIdent: getCSSModuleLocalIdent,
+              },
             },
           },
           // Sass 를 위한 처리
@@ -91,7 +93,10 @@ module.exports = {
               {
                 loader: require.resolve('css-loader'),
                 options: {
-                  exportOnlyLocals: true,
+                  importLoaders: 3,
+                  modules: {
+                    onlyLocals: true,
+                  },
                 },
               },
               require.resolve('sass-loader'),
@@ -105,9 +110,11 @@ module.exports = {
               {
                 loader: require.resolve('css-loader'),
                 options: {
-                  module: true,
-                  exportOnlyLocals: true,
-                  getLocalIdent: getCSSModuleLocalIdent,
+                  importLoaders: 3,
+                  modules: {
+                    onlyLocals: true,
+                    getLocalIdent: getCSSModuleLocalIdent,
+                  },
                 },
               },
               require.resolve('sass-loader'),
@@ -141,8 +148,9 @@ module.exports = {
   resolve: {
     modules: ['node_modules'],
   },
-  externals: [nodeExternals()],
-  plugins: [
-    new webpack.DefinePlugin(env.stringified), // 환경변수를 주입해줍니다.
+  externals: [
+    nodeExternals({
+      allowlist: [/@babel/],
+    }),
   ],
 };
