@@ -69,7 +69,7 @@ module.exports = {
             options: {
               importLoaders: 1,
               modules: {
-                onlyLocals: true,
+                exportOnlyLocals: true,
               },
             },
           },
@@ -80,7 +80,7 @@ module.exports = {
             options: {
               importLoaders: 1,
               modules: {
-                onlyLocals: true,
+                exportOnlyLocals: true,
                 getLocalIdent: getCSSModuleLocalIdent,
               },
             },
@@ -95,7 +95,7 @@ module.exports = {
                 options: {
                   importLoaders: 3,
                   modules: {
-                    onlyLocals: true,
+                    exportOnlyLocals: true,
                   },
                 },
               },
@@ -112,7 +112,7 @@ module.exports = {
                 options: {
                   importLoaders: 3,
                   modules: {
-                    onlyLocals: true,
+                    exportOnlyLocals: true,
                     getLocalIdent: getCSSModuleLocalIdent,
                   },
                 },
@@ -148,9 +148,8 @@ module.exports = {
   resolve: {
     modules: ['node_modules'],
   },
-  externals: [
-    nodeExternals({
-      allowlist: [/@babel/],
-    }),
+  externals: [nodeExternals()],
+  plugins: [
+    new webpack.DefinePlugin(env.stringified), // 환경변수를 주입해 줍니다.
   ],
 };
