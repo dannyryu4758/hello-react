@@ -45,7 +45,7 @@ function createPage(root, stateScript) {
       ${root}
     </div>
     ${stateScript}
-    <script src="${manifest.files['runtime~main.js']}"></script>
+    <script src="${manifest.files['runtime-main.js']}"></script>
     ${chunks}
     <script src="${manifest.files['main.js']}"></script>
   </body>

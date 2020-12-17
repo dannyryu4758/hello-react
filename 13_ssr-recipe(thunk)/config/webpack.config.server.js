@@ -1,6 +1,6 @@
-const paths = require('./paths');
-const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
 const nodeExternals = require('webpack-node-externals');
+const paths = require('./paths');
+const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent'); // CSS
 const webpack = require('webpack');
 const getClientEnvironment = require('./env');
 
@@ -49,7 +49,8 @@ module.exports = {
                   {
                     loaderMap: {
                       svg: {
-                        ReactComponent: '@svgr/webpack?-svgo![path]',
+                        ReactComponent:
+                          '@svgr/webpack?-svgo,+titleProp,+ref![path]',
                       },
                     },
                   },
@@ -64,7 +65,7 @@ module.exports = {
           {
             test: cssRegex,
             exclude: cssModuleRegex,
-            //  exportOnlyLocals: true 옵션을 설정해야 실제 css 파일을 생성하지 않습니다.
+            //  onlyLocals: true 옵션을 설정해야 실제 css 파일을 생성하지 않습니다.
             loader: require.resolve('css-loader'),
             options: {
               importLoaders: 1,
@@ -148,7 +149,11 @@ module.exports = {
   resolve: {
     modules: ['node_modules'],
   },
-  externals: [nodeExternals()],
+  externals: [
+    nodeExternals({
+      allowlist: [/@babel/],
+    }),
+  ],
   plugins: [
     new webpack.DefinePlugin(env.stringified), // 환경변수를 주입해 줍니다.
   ],
